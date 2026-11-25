@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>京东影业传媒_光影内容生态 | 影像叙事 让好故事被看见</title>
+<meta name="description" content="京东影业传媒是聚焦影像内容创制与发行的综合视频品牌，以剧集、纪录片、短剧与品牌影像构建完整内容生态，让好故事被看见。">
+<style>
+:root{
+  --ink:#0b0d12;
+  --ink2:#151a24;
+  --ink3:#1e2532;
+  --red:#e0332b;
+  --red2:#ff5348;
+  --gold:#e8b45a;
+  --paper:#f4f1ea;
+  --grey:#8b93a3;
+  --line:rgba(255,255,255,.09);
+  --max:1240px;
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:#e9ecf2;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul{list-style:none}
+::selection{background:var(--red);color:#fff}
+
+/* ---------- 顶部导航 ---------- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(18px,4vw,54px);
+  background:linear-gradient(180deg,rgba(11,13,18,.92),rgba(11,13,18,.35) 70%,transparent);
+  backdrop-filter:blur(10px);
+  transition:background .4s ease,padding .4s ease;
+}
+.topbar.solid{background:rgba(11,13,18,.96);padding:12px clamp(18px,4vw,54px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(140deg,var(--red),#8f1a14);
+  display:grid;place-items:center;
+  box-shadow:0 8px 24px rgba(224,51,43,.35);
+  flex:0 0 auto;
+}
+.brand-mark svg{width:22px;height:22px}
+.brand-txt{display:flex;flex-direction:column;line-height:1.15}
+.brand-txt b{font-size:17px;letter-spacing:.5px}
+.brand-txt span{font-size:10px;letter-spacing:3px;color:var(--grey);text-transform:uppercase}
+.nav{display:flex;gap:30px;align-items:center}
+.nav a{font-size:14px;color:#c3cad8;position:relative;padding:4px 0;transition:color .25s}
+.nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--red);transition:width .3s}
+.nav a:hover{color:#fff}
+.nav a:hover::after{width:100%}
+.nav-cta{
+  border:1px solid rgba(224,51,43,.6);color:#fff;border-radius:100px;
+  padding:9px 22px;font-size:13.5px;background:rgba(224,51,43,.12);
+  transition:.3s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--red);border-color:var(--red);box-shadow:0 8px 22px rgba(224,51,43,.35)}
+.burger{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:transparent;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger i{width:18px;height:2px;background:#e9ecf2;display:block;transition:.3s}
+.burger.on i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.on i:nth-child(2){opacity:0}
+.burger.on i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;background:rgba(11,13,18,.98);
+  display:none;flex-direction:column;justify-content:center;gap:8px;padding:0 34px;
+}
+.mobile-menu.on{display:flex}
+.mobile-menu a{font-size:14px;letter-spacing:2px;color:#dfe4ee;padding:16px 0;border-bottom:1px solid var(--line);text-transform:uppercase}
+
+/* ---------- 主视觉 ---------- */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px clamp(18px,4vw,54px) 90px;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg .grad{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 78% 22%,rgba(224,51,43,.30),transparent 62%),
+    radial-gradient(ellipse 60% 55% at 12% 82%,rgba(232,180,90,.16),transparent 60%),
+    linear-gradient(160deg,#0b0d12 0%,#121722 46%,#080a0f 100%);
+}
+.hero-bg .grid{
+  position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:76px 76px;
+  mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 78%);
+}
+.hero-bg .beam{
+  position:absolute;width:130%;height:2px;left:-15%;
+  background:linear-gradient(90deg,transparent,rgba(224,51,43,.55),transparent);
+  filter:blur(.4px);
+  animation:beamMove 9s linear infinite;
+}
+.hero-bg .beam:nth-child(3){top:34%;animation-delay:-3s;opacity:.5}
+.hero-bg .beam:nth-child(4){top:66%;animation-delay:-6s;opacity:.32}
+@keyframes beamMove{0%{transform:translateX(-30%)}100%{transform:translateX(30%)}}
+.hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3.4px;color:var(--gold);text-transform:uppercase;margin-bottom:26px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold);display:block}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,51,43,.6)}50%{box-shadow:0 0 0 8px rgba(224,51,43,0)}}
+h1.hero-title{
+  font-family:"Songti SC","STSong",Georgia,"Times New Roman",serif;
+  font-size:clamp(46px,7.4vw,94px);
+  line-height:1.02;letter-spacing:.01em;font-weight:700;
+  background:linear-gradient(180deg,#fff 24%,#c9cfdb 78%,#8e97a8);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:10px;
+}
+.hero-sub-en{font-size:13px;letter-spacing:6px;color:var(--grey);text-transform:uppercase;margin-bottom:30px}
+.hero-lead{font-size:clamp(15px,1.5vw,17.5px);color:#b7c0d0;max-width:520px;margin-bottom:38px}
+.hero-lead em{color:#fff;font-style:normal;border-bottom:1px solid rgba(224,51,43,.7);padding-bottom:2px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;border-radius:100px;font-size:14.5px;letter-spacing:1px;
+  transition:.32s;border:1px solid transparent;cursor:pointer;font-family:inherit;
+}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 14px 38px rgba(224,51,43,.34)}
+.btn-primary:hover{background:var(--red2);transform:translateY(-3px);box-shadow:0 20px 46px rgba(224,51,43,.44)}
+.btn-ghost{border-color:rgba(255,255,255,.22);color:#e9ecf2;background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-3px)}
+.btn svg{width:16px;height:16px}
+.hero-stats{display:flex;gap:clamp(22px,3.4vw,52px);margin-top:58px;flex-wrap:wrap}
+.hero-stats div strong{
+  display:block;font-size:clamp(26px,3.2vw,38px);font-weight:700;line-height:1;
+  font-family:Georgia,"Times New Roman",serif;color:#fff;
+}
+.hero-stats div strong i{font-style:normal;color:var(--red);font-size:.58em;margin-left:2px}
+.hero-stats div span{font-size:12px;letter-spacing:2px;color:var(--grey);margin-top:9px;display:block}
+
+/* 主视觉右侧：播放器卡片 */
+.hero-visual{position:relative;perspective:1200px}
+.screen-card{
+  position:relative;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.13);
+  background:#10141c;
+  box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03) inset;
+  transform:rotateY(-7deg) rotateX(2deg);
+  transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.hero-visual:hover .screen-card{transform:rotateY(0) rotateX(0)}
+.screen-body{
+  position:relative;aspect-ratio:16/10;
+  background:
+    radial-gradient(circle at 30% 26%,rgba(224,51,43,.5),transparent 55%),
+    radial-gradient(circle at 76% 74%,rgba(232,180,90,.34),transparent 54%),
+    linear-gradient(150deg,#1b2130,#0a0d13);
+  display:grid;place-items:center;
+}
+.screen-body .film-grain{position:absolute;inset:0;opacity:.16;background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1px);background-size:4px 4px}
+.screen-body .rings{position:absolute;inset:0;display:grid;place-items:center}
+.screen-body .rings span{position:absolute;border:1px solid rgba(255,255,255,.1);border-radius:50%;width:58%;aspect-ratio:1}
+.screen-body .rings span:nth-child(2){width:80%;border-color:rgba(255,255,255,.06)}
+.screen-body .rings span:nth-child(3){width:100%;border-color:rgba(255,255,255,.035)}
+.play-btn{
+  position:relative;z-index:3;width:78px;height:78px;border-radius:50%;
+  background:rgba(255,255,255,.96);display:grid;place-items:center;cursor:pointer;
+  box-shadow:0 0 0 0 rgba(255,255,255,.3);
+  transition:.35s;
+}
+.play-btn::before{content:"";position:absolute;inset:-16px;border-radius:50%;border:1px solid rgba(255,255,255,.28);animation:ripple 2.6s ease-out infinite}
+@keyframes ripple{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.play-btn:hover{transform:scale(1.08);background:#fff}
+.play-btn svg{width:24px;height:24px;margin-left:4px;fill:var(--ink)}
+.screen-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:15px 18px;background:#0d1118;border-top:1px solid var(--line);
+}
+.screen-bar .t{font-size:13px;color:#dfe4ee;letter-spacing:.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.screen-bar .t small{display:block;color:var(--grey);font-size:11px;letter-spacing:1.4px;margin-top:2px}
+.badge-live{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:1.5px;color:var(--red2);border:1px solid rgba(224,51,43,.45);border-radius:100px;padding:5px 11px;background:rgba(224,51,43,.1);white-space:nowrap}
+.badge-live::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--red2);animation:pulse 1.8s infinite}
+.float-tag{
+  position:absolute;background:rgba(16,20,28,.88);border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;padding:12px 16px;backdrop-filter:blur(12px);
+  box-shadow:0 16px 40px rgba(0,0,0,.45);font-size:12px;
+}
+.float-tag b{display:block;font-size:17px;color:#fff;font-family:Georgia,serif}
+.float-tag span{color:var(--grey);letter-spacing:1.4px;font-size:10.5px}
+.float-tag.a{top:-22px;left:-26px;animation:float 6s ease-in-out infinite}
+.float-tag.b{bottom:64px;right:-30px;animation:float 7s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* 滚动字幕条 */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#090b10;overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;gap:64px;white-space:nowrap;animation:scrollX 34s linear infinite;width:max-content}
+.marquee-track span{font-size:12.5px;letter-spacing:4px;color:#79839a;text-transform:uppercase;display:flex;align-items:center;gap:64px}
+.marquee-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--red);display:block;flex:0 0 auto}
+@keyframes scrollX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ---------- 通用区块 ---------- */
+section{position:relative}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,54px);width:100%}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
+.sec-tag{font-size:12px;letter-spacing:4px;color:var(--red2);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-tag::before{content:"";width:26px;height:1px;background:var(--red)}
+h2.sec-title{
+  font-family:"Songti SC","STSong",Georgia,serif;
+  font-size:clamp(28px,4.2vw,50px);line-height:1.2;font-weight:700;letter-spacing:.01em;
+  color:#fff;
+}
+h2.sec-title em{font-style:normal;color:var(--red2)}
+.sec-desc{color:#9aa4b6;max-width:420px;font-size:14.5px;line-height:1.9}
+.pad{py:0}
+.pad-y{padding:clamp(72px,10vw,130px) 0}
+
+/* ---------- 关于 ---------- */
+.about{background:linear-gradient(180deg,#0b0d12,#0e1118)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,74px);align-items:center}
+.about-visual{position:relative;aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#0a0d13}
+.about-visual .stack{position:absolute;inset:0}
+.about-visual .layer{border-radius:20px;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.about-visual .l1{position:absolute;top:9%;left:8%;width:62%;height:56%;background:linear-gradient(150deg,rgba(224,51,43,.5),rgba(224,51,43,.06));border:1px solid rgba(224,51,43,.26)}
+.about-visual .l2{position:absolute;bottom:9%;right:8%;width:60%;height:54%;background:linear-gradient(150deg,rgba(232,180,90,.34),rgba(232,180,90,.04));border:1px solid rgba(232,180,90,.22)}
+.about-visual .l3{position:absolute;top:26%;right:14%;width:34%;height:44%;background:rgba(11,13,18,.8);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);display:grid;place-items:center}
+.about-visual .l3 svg{width:42px;height:42px;fill:rgba(255,255,255,.9)}
+.about-visual:hover .l1{transform:translate(-8px,-8px)}
+.about-visual:hover .l2{transform:translate(8px,8px)}
+.about-visual .timecode{position:absolute;bottom:13px;left:16px;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:2px;color:#8f9aac}
+.about-body p{color:#a9b3c4;font-size:15.5px;margin-bottom:20px;line-height:1.95}
+.about-body p strong{color:#fff;font-weight:600}
+.values{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+.value{padding:20px 20px 22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.024);transition:.35s}
+.value:hover{border-color:rgba(224,51,43,.45);background:rgba(224,51,43,.06);transform:translateY(-4px)}
+.value b{display:block;color:#fff;font-size:15px;margin-bottom:8px;letter-spacing:.5px}
+.value span{font-size:13px;color:#8f99ab;line-height:1.8}
+
+/* ---------- 业务/板块 ---------- */
+.biz{background:#0b0d12}
+.biz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.biz-card{
+  position:relative;border-radius:20px;padding:34px 30px 30px;overflow:hidden;
+  border:1px solid var(--line);background:linear-gradient(170deg,#141a24,#0d1119);
+  transition:.42s;isolation:isolate;
+}
+.biz-card::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .42s;
+  background:radial-gradient(circle at 80% 0%,rgba(224,51,43,.28),transparent 60%);
+}
+.biz-card:hover{transform:translateY(-8px);border-color:rgba(224,51,43,.42);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.biz-card:hover::before{opacity:1}
+.biz-ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(224,51,43,.13);border:1px solid rgba(224,51,43,.3);margin-bottom:22px}
+.biz-ico svg{width:24px;height:24px;fill:none;stroke:var(--red2);stroke-width:1.6}
+.biz-card h3{font-size:19px;color:#fff;margin-bottom:12px;letter-spacing:.5px}
+.biz-card p{font-size:13.5px;color:#8f99ab;line-height:1.9;margin-bottom:18px}
+.biz-card .num{position:absolute;top:22px;right:26px;font-family:Georgia,serif;font-size:15px;color:#3a4456;letter-spacing:1px}
+.biz-card .list{display:flex;flex-wrap:wrap;gap:8px}
+.biz-card .list i{font-style:normal;font-size:11.5px;letter-spacing:.8px;color:#a9b3c4;border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:4px 11px}
+
+/* ---------- 作品 ---------- */
+.works{background:linear-gradient(180deg,#0e1118,#0b0d12)}
+.works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.work{
+  position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);
+  min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:26px;transition:.5s;cursor:pointer;
+}
+.work:hover{transform:translateY(-6px);box-shadow:0 28px 64px rgba(0,0,0,.55);border-color:rgba(255,255,255,.2)}
+.work .art{position:absolute;inset:0;z-index:0;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.work:hover .art{transform:scale(1.06)}
+.work .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,18,.06),rgba(11,13,18,.9))}
+.work .meta{position:relative;z-index:2}
+.work .kicker{font-size:11px;letter-spacing:2.6px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:block}
+.work h3{font-size:clamp(18px,2.1vw,24px);color:#fff;line-height:1.4;margin-bottom:8px;font-weight:600}
+.work p{font-size:12.8px;color:#a2acbe;line-height:1.75;max-width:360px}
+.work .tag{position:absolute;top:20px;right:20px;z-index:2;font-size:11px;letter-spacing:1.4px;color:#dfe4ee;border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:5px 12px;background:rgba(11,13,18,.5);backdrop-filter:blur(6px)}
+.work.p1{grid-column:span 7}
+.work.p2{grid-column:span 5}
+.work.p3{grid-column:span 4}
+.work.p4{grid-column:span 4}
+.work.p5{grid-column:span 4}
+.art-a{background:radial-gradient(circle at 24% 22%,#712824,#1a1418 58%),linear-gradient(150deg,#2d1a1c,#0c0e13)}
+.art-b{background:radial-gradient(circle at 76% 26%,#6b5122,#151312 60%),linear-gradient(200deg,#2a2316,#0b0d12)}
+.art-c{background:radial-gradient(circle at 40% 70%,#173a4a,#0d1218 62%),linear-gradient(160deg,#112430,#0a0d12)}
+.art-d{background:radial-gradient(circle at 60% 30%,#3b2434,#121016 58%),linear-gradient(180deg,#241a26,#0a0c11)}
+.art-e{background:radial-gradient(circle at 30% 40%,#243a2c,#0f1412 60%),linear-gradient(180deg,#16251d,#090b0f)}
+.art-f{background:radial-gradient(circle at 70% 60%,#4a2a1a,#141110 62%),linear-gradient(150deg,#2b1c14,#0b0d12)}
+.art-line{position:absolute;inset:0;opacity:.5;background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 1px,transparent 1px 22px)}
+
+/* ---------- 数据 ---------- */
+.stats{background:#090b10;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.stat{background:#090b10;padding:clamp(30px,4vw,52px) 24px;text-align:center;transition:.35s}
+.stat:hover{background:#0e1219}
+.stat b{display:block;font-family:Georgia,serif;font-size:clamp(34px,4.4vw,54px);line-height:1;color:#fff;margin-bottom:14px;letter-spacing:-.01em}
+.stat b i{font-style:normal;color:var(--red2);font-size:.52em;margin-left:3px;letter-spacing:0}
+.stat span{font-size:12.5px;letter-spacing:2.6px;color:#79839a}
+
+/* ---------- 新闻/动态 ---------- */
+.news{background:linear-gradient(180deg,#0b0d12,#0e1118)}
+.news-list{border-top:1px solid var(--line)}
+.news-item{
+  display:grid;grid-template-columns:120px 1fr auto;gap:clamp(16px,3vw,40px);
+  align-items:center;padding:30px 8px;border-bottom:1px solid var(--line);
+  transition:.35s;cursor:pointer;
+}
+.news-item:hover{background:rgba(255,255,255,.028);padding-left:20px;padding-right:20px}
+.news-date{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:1.6px;color:#79839a}
+.news-date b{display:block;font-family:Georgia,serif;font-size:26px;color:#fff;letter-spacing:0;margin-bottom:2px;font-weight:400}
+.news-main h3{font-size:clamp(15.5px,1.8vw,19px);color:#eef1f6;font-weight:500;line-height:1.55;margin-bottom:7px}
+.news-main p{font-size:13px;color:#8792a5;line-height:1.8}
+.news-main .cat{display:inline-block;font-size:10.5px;letter-spacing:1.8px;color:var(--gold);border:1px solid rgba(232,180,90,.32);border-radius:100px;padding:3px 10px;margin-bottom:9px}
+.news-arrow{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;transition:.35s;flex:0 0 auto}
+.news-arrow svg{width:15px;height:15px;stroke:#c3cad8;fill:none;stroke-width:1.7;transition:.35s}
+.news-item:hover .news-arrow{background:var(--red);border-color:var(--red);transform:rotate(-45deg)}
+.news-item:hover .news-arrow svg{stroke:#fff}
+
+/* ---------- 社区 / 用户 ---------- */
+.community{background:#0b0d12}
+.comm-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,68px);align-items:center}
+.chat-card{
+  border:1px solid var(--line);border-radius:22px;background:linear-gradient(170deg,#131923,#0c1017);
+  padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.45);
+}
+.chat-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.chat-head .who{display:flex;align-items:center;gap:12px}
+.av{width:40px;height:40px;border-radius:12px;background:linear-gradient(140deg,var(--red),#7a1712);display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff}
+.chat-head .who b{display:block;font-size:14px;color:#fff}
+.chat-head .who span{font-size:11px;color:var(--grey);letter-spacing:1.2px}
+.chat-head .cnt{font-size:11.5px;color:#9aa4b6;letter-spacing:1.4px}
+.chat-line{display:flex;gap:12px;margin-bottom:18px}
+.chat-line .bub{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:4px 14px 14px 14px;padding:12px 16px;font-size:13.2px;color:#c3cad8;line-height:1.8}
+.chat-line:nth-child(2) .bub{border-radius:14px 4px 14px 14px;background:rgba(224,51,43,.12);border-color:rgba(224,51,43,.26)}
+.chat-input{display:flex;gap:10px;margin-top:22px}
+.chat-input input{
+  flex:1;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;
+  padding:12px 15px;color:#e9ecf2;font-family:inherit;font-size:13px;outline:none;transition:.3s;
+}
+.chat-input input:focus{border-color:rgba(224,51,43,.6);background:rgba(255,255,255,.06)}
+.chat-input button{
+  background:var(--red);color:#fff;border:none;border-radius:10px;padding:0 22px;
+  font-family:inherit;font-size:13px;cursor:pointer;transition:.3s;
+}
+.chat-input button:hover{background:var(--red2)}
+.comm-body .values{grid-template-columns:1fr 1fr}
+.topic-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.topic-cloud span{font-size:12.5px;color:#a9b3c4;border:1px solid var(--line);border-radius:100px;padding:7px 15px;transition:.3s;cursor:default}
+.topic-cloud span:hover{border-color:rgba(224,51,43,.5);color:#fff;background:rgba(224,51,43,.1)}
+
+/* ---------- 团队 ---------- */
+.team{background:linear-gradient(180deg,#0e1118,#0b0d12)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.member{border:1px solid var(--line);border-radius:18px;padding:26px 22px;background:rgba(255,255,255,.02);transition:.4s;text-align:center}
+.member:hover{border-color:rgba(232,180,90,.4);transform:translateY(-6px);background:rgba(232,180,90,.045)}
+.member .ph{width:76px;height:76px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;font-family:Georgia,serif;font-size:24px;color:#fff;background:linear-gradient(150deg,#2b3341,#171d27);border:1px solid rgba(255,255,255,.12)}
+.member h4{font-size:15.5px;color:#fff;margin-bottom:6px}
+.member span{font-size:12px;color:#8f99ab;letter-spacing:.6px}
+.member .role-line{width:26px;height:1px;background:var(--red);margin:14px auto 12px}
+.member small{font-size:11.5px;color:#6f7a8c;letter-spacing:1px}
+
+/* ---------- CTA ---------- */
+.cta{
+  position:relative;overflow:hidden;text-align:center;
+  padding:clamp(80px,11vw,140px) clamp(18px,4vw,54px);
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 0%,rgba(224,51,43,.28),transparent 62%),
+    linear-gradient(180deg,#0c0f15,#12161f);
+  border-top:1px solid var(--line);
+}
+.cta-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.cta h2{
+  font-family:"Songti SC","STSong",Georgia,serif;font-size:clamp(30px,5vw,58px);
+  line-height:1.24;color:#fff;margin-bottom:24px;letter-spacing:.01em;
+}
+.cta h2 em{font-style:normal;color:var(--red2)}
+.cta p{color:#9aa4b6;font-size:15.5px;max-width:540px;margin:0 auto 40px;line-height:1.95}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- 页脚 ---------- */
+footer{background:#070910;border-top:1px solid var(--line);padding:clamp(50px,7vw,80px) clamp(18px,4vw,54px) 30px}
+.foot-top{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(26px,4vw,54px);padding-bottom:52px;border-bottom:1px solid var(--line)}
+.foot-brand p{color:#79839a;font-size:13.5px;line-height:1.95;margin:20px 0 24px;max-width:320px}
+.social{display:flex;gap:10px}
+.social a{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center;transition:.3s}
+.social a svg{width:16px;height:16px;fill:#8b93a3;transition:.3s}
+.social a:hover{border-color:var(--red);background:rgba(224,51,43,.12);transform:translateY(-3px)}
+.social a:hover svg{fill:var(--red2)}
+.foot-col h5{font-size:12px;letter-spacing:2.6px;color:#6f7a8c;text-transform:uppercase;margin-bottom:20px}
+.foot-col a{display:block;font-size:13.5px;color:#9aa4b6;padding:7px 0;transition:.28s}
+.foot-col a:hover{color:#fff;transform:translateX(4px)}
+.foot-bottom{max-width:var(--max);margin:0 auto;padding-top:26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.foot-bottom p,.foot-bottom a{font-size:12px;color:#5c6577;letter-spacing:.4px}
+.foot-bottom a:hover{color:#9aa4b6}
+.foot-legal{display:flex;gap:20px;flex-wrap:wrap}
+
+/* ---------- 滚动登场 ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1080px){
+  .hero-inner{grid-template-columns:1fr;gap:56px}
+  .hero-visual{max-width:560px}
+  .about-grid,.comm-grid{grid-template-columns:1fr}
+  .biz-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .work.p1,.work.p2,.work.p3,.work.p4,.work.p5{grid-column:span 6}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:840px){
+  .nav{display:none}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .works-grid{gap:16px}
+  .work.p1,.work.p2,.work.p3,.work.p4,.work.p5{grid-column:span 12;min-height:250px}
+  .news-item{grid-template-columns:1fr auto;gap:14px}
+  .news-date{grid-column:1/-1;display:flex;align-items:baseline;gap:10px}
+  .news-date b{display:inline;font-size:18px;margin:0}
+  .values{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .biz-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .hero{padding-top:120px}
+  .hero-stats{gap:26px}
+  .float-tag.a{left:-8px;top:-16px}
+  .float-tag.b{right:-8px;bottom:56px}
+  .foot-top{grid-template-columns:1fr}
+  .screen-bar .t small{display:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#home" aria-label="京东影业传媒">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-13Z" stroke="#fff" stroke-width="1.4"/><path d="M10 9.2v5.6l4.6-2.8L10 9.2Z" fill="#fff"/><path d="M4 8h16M4 16h16" stroke="#fff" stroke-width=".9" opacity=".55"/></svg>
+    </span>
+    <span class="brand-txt"><b>京东影业传媒</b><span>JINGDONG PICTURES</span></span>
+  </a>
+  <nav class="nav">
+    <a href="#about">关于我们</a>
+    <a href="#business">业务板块</a>
+    <a href="#works">作品矩阵</a>
+    <a href="#news">品牌动态</a>
+    <a href="#community">社区共创</a>
+  </nav>
+  <a class="nav-cta" href="#contact">商务合作</a>
+  <button class="burger" id="burger" aria-label="打开菜单" aria-expanded="false">
+    <i></i><i></i><i></i>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">关于我们</a>
+  <a href="#business">业务板块</a>
+  <a href="#works">作品矩阵</a>
+  <a href="#news">品牌动态</a>
+  <a href="#community">社区共创</a>
+  <a href="#contact" style="color:#ff5348">商务合作</a>
+</div>
+
+<!-- 主视觉 -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="grad"></div>
+    <div class="grid"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="dot"></span>影像内容 · 出品 · 发行 · 社区</div>
+      <h1 class="hero-title">京东影业传媒</h1>
+      <div class="hero-sub-en">Jingdong Pictures Media</div>
+      <p class="hero-lead">
+        以影像为方法，以真实感为底色。京东影业传媒专注剧集、纪录片、短剧与品牌影像的全链路创制，
+        让每一个被认真讲述的故事，都能<em>被更多人看见</em>。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#works">
+          浏览作品矩阵
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#community">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg>
+          加入创作社区
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-count="1280">0</strong><span>累计出品作品</span></div>
+        <div><strong data-count="96">0</strong><span>合作创作者（千）</span></div>
+        <div><strong data-count="42">0</strong><span>覆盖国家与地区</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="screen-card">
+        <div class="screen-body">
+          <div class="film-grain"></div>
+          <div class="rings"><span></span><span></span><span></span></div>
+          <button class="play-btn" aria-label="播放品牌片">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></svg>
+          </button>
+        </div>
+        <div class="screen-bar">
+          <div class="t">《光影之间》品牌影像 Vol.01<small>JINGDONG PICTURES ORIGINAL</small></div>
+          <span class="badge-live">NOW SHOWING</span>
+        </div>
+      </div>
+      <div class="float-tag a"><b>4K</b><span>HDR 制作标准</span></div>
+      <div class="float-tag b"><b>24 fps</b><span>电影级叙事节奏</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 滚动字幕 -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>剧集创制</span><span>纪录片出品</span><span>短剧矩阵</span><span>品牌影像</span><span>版权发行</span><span>青年导演计划</span><span>影像社区</span><span>4K HDR 制作</span>
+    <span>剧集创制</span><span>纪录片出品</span><span>短剧矩阵</span><span>品牌影像</span><span>版权发行</span><span>青年导演计划</span><span>影像社区</span><span>4K HDR 制作</span>
+  </div>
+</div>
+
+<!-- 关于 -->
+<section class="about pad-y" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="stack">
+          <div class="layer l1"></div>
+          <div class="layer l2"></div>
+          <div class="layer l3">
+            <svg viewBox="0 0 24 24"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11Z" opacity=".18"/><path d="M10 9v6l5-3-5-3Z"/></svg>
+          </div>
+        </div>
+        <div class="timecode">00:00:12:08 / REC</div>
+      </div>
+      <div class="about-body reveal d1">
+        <div class="sec-tag">About Us</div>
+        <h2 class="sec-title">我们相信，<em>好故事</em>值得被完整讲述</h2>
+        <p style="margin-top:24px">
+          京东影业传媒是一家以影像内容为核心的综合性视频品牌。我们围绕<strong>创制、出品、发行、社区</strong>四个环节，
+          构建起从创意孵化到全球触达的完整链路，让内容不再只是一次性的播放，而成为可持续生长的文化资产。
+        </p>
+        <p>
+          从现实主义剧集到人文纪录片，从垂直短剧到品牌影像，我们与导演、编剧、摄影、后期以及大量普通创作者一起，
+          用镜头记录时代的表情。我们坚持<strong>真实感、专业度与长期主义</strong>，也坚持在每一个项目里保留一点冒险。
+        </p>
+        <div class="values">
+          <div class="value"><b>真实感优先</b><span>不修饰真实，只放大值得被看见的部分。</span></div>
+          <div class="value"><b>专业级标准</b><span>电影级制作流程，全链路品控与交付。</span></div>
+          <div class="value"><b>长期主义</b><span>陪伴创作者成长，而非一次性合作。</span></div>
+          <div class="value"><b>社区共创</b><span>让观众、创作者与品牌成为同一个叙事共同体。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 业务板块 -->
+<section class="biz pad-y" id="business">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <div class="sec-tag">Business</div>
+        <h2 class="sec-title">四条内容线，<em>一个叙事系统</em></h2>
+      </div>
+      <p class="sec-desc reveal d1">
+        我们不做单一品类的内容工厂，而是让不同长度的影像彼此支撑，形成可持续的内容生态。
+      </p>
+    </div>
+    <div class="biz-grid">
+      <article class="biz-card reveal">
+        <span class="num">01</span>
+        <div class="biz-ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v14"/></svg>
+        </div>
+        <h3>剧集创制</h3>
+        <p>从剧本开发到成片交付，覆盖现实主义、都市情感、悬疑类型等题材，以电影级班底服务长叙事。</p>
+        <div class="list"><i>剧本开发</i><i>联合出品</i><i>主创签约</i></div>
+      </article>
+      <article class="biz-card reveal d1">
+        <span class="num">02</span>
+        <div class="biz-ico">
+          <svg viewBox="0 0 24 24"><path d="M4 18V7a2 2 0 0 1 2-2h7l6 6v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M13 5v6h6"/></svg>
+        </div>
+        <h3>纪录片出品</h3>
+        <p>聚焦人文、城市、技艺与自然，以长周期观察的方式记录真实，构建具备存档价值的影像档案。</p>
+        <div class="list"><i>人文观察</i><i>城市档案</i><i>自然影像</i></div>
+      </article>
+      <article class="biz-card reveal d2">
+        <span class="num">03</span>
+        <div class="biz-ico">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/><circle cx="19" cy="12" r="2"/></svg>
+        </div>
+        <h3>短剧矩阵</h3>
+        <p>以竖屏叙事与系列化生产为核心，建立从选题、拍摄到分发的高效链路，快速响应内容消费趋势。</p>
+        <div class="list"><i>竖屏短剧</i><i>系列化生产</i><i>多平台分发</i></div>
+      </article>
+      <article class="biz-card reveal d3">
+        <span class="num">04</span>
+        <div class="biz-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+        </div>
+        <h3>品牌影像</h3>
+        <p>为企业与机构提供从策略到成片的品牌影像解决方案，让品牌表达具备叙事张力与长期复用价值。</p>
+        <div class="list"><i>品牌片</i><i>产品影像</i><i>年度内容</i></div>
+      </article>
+      <article class="biz-card reveal d1">
+        <span class="num">05</span>
+        <div class="biz-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg>
+        </div>
+        <h3>版权发行</h3>
+        <p>覆盖海内外主流平台与院线渠道，提供版权运营、译制与本地化服务，延长内容生命周期。</p>
+        <div class="list"><i>版权运营</i><i>海外译制</i><i>渠道分发</i></div>
+      </article>
+      <article class="biz-card reveal d2">
+        <span class="num">06</span>
+        <div class="biz-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 4 3.4 7 8 8 4.6-1 8-4 8-8V7l-8-4Z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+        </div>
+        <h3>青年导演计划</h3>
+        <p>为青年创作者提供资金、设备、导师与发行支持，用真实的项目机会替代空泛的承诺。</p>
+        <div class="list"><i>项目孵化</i><i>导师制</i><i>首作发行</i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 作品矩阵 -->
+<section class="works pad-y" id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <div class="sec-tag">Selected Works</div>
+        <h2 class="sec-title">作品是<em>最直接</em>的表达</h2>
+      </div>
+      <p class="sec-desc reveal d1">
+        部分在制与合作项目。我们更愿意让作品自己说话，而不是用形容词堆砌能力。
+      </p>
+    </div>
+    <div class="works-grid">
+      <article class="work p1 reveal">
+        <div class="art art-a"><div class="art-line"></div></div>
+        <span class="tag">剧集 · 在制</span>
+        <div class="meta">
+          <span class="kicker">Series / 40min × 12</span>
+          <h3>《潮汐线》</h3>
+          <p>一座沿海城市的十年变迁，通过三个家庭的日常，记录普通人在时代水位涨落中的选择与坚持。</p>
+        </div>
+      </article>
+      <article class="work p2 reveal d1">
+        <div class="art art-b"><div class="art-line"></div></div>
+        <span class="tag">纪录片</span>
+        <div class="meta">
+          <span class="kicker">Documentary / 6 Episodes</span>
+          <h3>《手艺人》</h3>
+          <p>走访十二座城市，记录那些仍在坚持手工技艺的人，以及他们与时间相处的方式。</p>
+        </div>
+      </article>
+      <article class="work p3 reveal">
+        <div class="art art-c"><div class="art-line"></div></div>
+        <span class="tag">短剧</span>
+        <div class="meta">
+          <span class="kicker">Short Series / 24 Episodes</span>
+          <h3>《夜班便利店》</h3>
+          <p>城市深夜的观察窗口，每一集都是一个陌生人的故事。</p>
+        </div>
+      </article>
+      <article class="work p4 reveal d1">
+        <div class="art art-d"><div class="art-line"></div></div>
+        <span class="tag">品牌影像</span>
+        <div class="meta">
+          <span class="kicker">Brand Film / 2024</span>
+          <h3>《出发之前》</h3>
+          <p>为年度品牌项目创作的叙事短片，以真实的出发瞬间串联品牌精神。</p>
+        </div>
+      </article>
+      <article class="work p5 reveal d2">
+        <div class="art art-e"><div class="art-line"></div></div>
+        <span class="tag">自然影像</span>
+        <div class="meta">
+          <span class="kicker">Nature / 4 Episodes</span>
+          <h3>《山与季风》</h3>
+          <p>以四季为轴，记录一条山脉的呼吸与它养育的生命。</p>
+        </div>
+      </article>
+      <article class="work p5 reveal d1" style="display:none"></article>
+    </div>
+  </div>
+</section>
+
+<!-- 数据 -->
+<section class="stats">
+  <div class="wrap" style="padding-left:0;padding-right:0;max-width:none">
+    <div class="stats-grid">
+      <div class="stat reveal"><b data-count="1280">0</b><span>累计出品作品</span></div>
+      <div class="stat reveal d1"><b data-count="36">0</b><span>已合作平台</span></div>
+      <div class="stat reveal d2"><b data-count="96">0</b><span>合作创作者（千）</span></div>
+      <div class="stat reveal d3"><b data-count="42">0</b><span>覆盖国家与地区</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌动态 -->
+<section class="news pad-y" id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <div class="sec-tag">Newsroom</div>
+        <h2 class="sec-title">品牌动态与<em>行业观察</em></h2>
+      </div>
+      <p class="sec-desc reveal d1">
+        项目进展、合作公告、创作手记与行业观察，都在这里持续更新。
+      </p>
+    </div>
+    <div class="news-list">
+      <a class="news-item reveal" href="#news">
+        <div class="news-date"><b>07.18</b>2025</div>
+        <div class="news-main">
+          <span class="cat">项目发布</span>
+          <h3>京东影业传媒发布年度片单，十二部新作亮相</h3>
+          <p>涵盖现实主义剧集、人文纪录片与短剧矩阵，多部作品同步开启主创招募与联合出品合作。</p>
+        </div>
+        <span class="news-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="news-item reveal d1" href="#news">
+        <div class="news-date"><b>06.30</b>2025</div>
+        <div class="news-main">
+          <span class="cat">合作公告</span>
+          <h3>青年导演计划第三期开启，面向全国征集首作提案</h3>
+          <p>入选项目将获得资金支持、设备资源与发行通道，同时进入为期一年的导师陪伴计划。</p>
+        </div>
+        <span class="news-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="news-item reveal d2" href="#news">
+        <div class="news-date"><b>06.12</b>2025</div>
+        <div class="news-main">
+          <span class="cat">创作手记</span>
+          <h3>《手艺人》拍摄手记：我们如何与一门手艺相处三个月</h3>
+          <p>从前期田野调查到现场沟通方式，纪录片团队分享了长周期拍摄中的取舍与坚持。</p>
+        </div>
+        <span class="news-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="news-item reveal d3" href="#news">
+        <div class="news-date"><b>05.26</b>2025</div>
+        <div class="news-main">
+          <span class="cat">行业观察</span>
+          <h3>短剧进入精品化阶段，内容标准正在被重新定义</h3>
+          <p>从野蛮生长到精细运营，短剧的竞争焦点正在回归叙事本身与制作水准。</p>
+        </div>
+        <span class="news-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 社区 -->
+<section class="community pad-y" id="community">
+  <div class="wrap">
+    <div class="comm-grid">
+      <div class="reveal">
+        <div class="sec-tag">Community</div>
+        <h2 class="sec-title">社区不是流量池，<br>而是<em>共同创作的现场</em></h2>
+        <p style="color:#a9b3c4;font-size:15.5px;margin-top:24px;line-height:1.95;max-width:480px">
+          我们在站内开放创作话题、素材互取与项目招募，观众可以是最早的试看者，也可以成为下一部作品的参与者。
+          每周固定的创作圆桌，让经验与困惑都能被认真回应。
+        </p>
+        <div class="topic-cloud">
+          <span>#我的城市印象</span>
+          <span>#一分钟短剧实验</span>
+          <span>#摄影器材互换</span>
+          <span>#素人出演计划</span>
+          <span>#幕后拆解</span>
+          <span>#剧本朗读会</span>
+          <span>#影像评论</span>
+        </div>
+      </div>
+      <div class="chat-card reveal d1">
+        <div class="chat-head">
+          <div class="who">
+            <span class="av">影</span>
+            <div><b>创作社区 · 今日话题</b><span>ACTIVE NOW</span></div>
+          </div>
+          <span class="cnt">2,486 人在线</span>
+        </div>
+        <div class="chat-line">
+          <div class="bub">第一次拍纪录片，最担心的是被拍摄者不自然，有什么办法让他们放松下来？</div>
+        </div>
+        <div class="chat-line">
+          <div class="bub">先别急着开机。花两天时间只聊天、帮他们做事，镜头存在感会自然降低。我们《手艺人》就是这么开始的。</div>
+        </div>
+        <div class="chat-line">
+          <div class="bub">收到，谢谢！今晚就把这个问题发到圆桌里，想听听更多人的经验。</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="分享你的问题或创作心得…" aria-label="社区发言输入框">
+          <button type="button" id="sendBtn">发送</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 团队 -->
+<section class="team pad-y">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <div class="sec-tag">Core Team</div>
+        <h2 class="sec-title">把专业主义<em>落在人身上</em></h2>
+      </div>
+      <p class="sec-desc reveal d1">
+        一支长期磨合的内容团队，覆盖开发、制作、发行与社区运营。
+      </p>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="ph">沈</div>
+        <h4>沈知远</h4>
+        <span>内容总监</span>
+        <div class="role-line"></div>
+        <small>剧集开发 / 叙事结构</small>
+      </div>
+      <div class="member reveal d1">
+        <div class="ph">罗</div>
+        <h4>罗星禾</h4>
+        <span>纪录片制片人</span>
+        <div class="role-line"></div>
+        <small>田野调查 / 长周期项目</small>
+      </div>
+      <div class="member reveal d2">
+        <div class="ph">程</div>
+        <h4>程野</h4>
+        <span>影像导演</span>
+        <div class="role-line"></div>
+        <small>品牌影像 / 视觉语言</small>
+      </div>
+      <div class="member reveal d3">
+        <div class="ph">白</div>
+        <h4>白予安</h4>
+        <span>社区运营负责人</span>
+        <div class="role-line"></div>
+        <small>创作者生态 / 项目孵化</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner reveal">
+    <div class="sec-tag" style="justify-content:center">Let's Make It</div>
+    <h2>如果你也有一个<br>想被<em>认真拍出来</em>的故事</h2>
+    <p>无论是完整提案、半成形的想法，还是一段还没找到出口的素材，欢迎与我们聊聊。我们会认真读完每一封来信。</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#contact">
+        提交项目提案
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#community">加入创作者社区</a>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <a class="brand" href="#home">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-13Z" stroke="#fff" stroke-width="1.4"/><path d="M10 9.2v5.6l4.6-2.8L10 9.2Z" fill="#fff"/></svg>
+        </span>
+        <span class="brand-txt"><b>京东影业传媒</b><span>JINGDONG PICTURES</span></span>
+      </a>
+      <p>以影像为方法，让好故事被看见。京东影业传媒持续投入剧集、纪录片、短剧与品牌影像的创制与发行。</p>
+      <div class="social">
+        <a href="#home" aria-label="视频平台"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-13ZM10 9v6l5-3-5-3Z"/></svg></a>
+        <a href="#home" aria-label="社交平台"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 3.58-9 8 0 2.5 1.3 4.73 3.33 6.2L5.5 21l4.1-2.05c.76.14 1.57.22 2.4.22 4.97 0 9-3.58 9-8s-4.03-8.17-9-8.17Z"/></svg></a>
+        <a href="#home" aria-label="图片社区"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="#8b93a3" stroke-width="1.6" fill="none"/></svg></a>
+        <a href="#home" aria-label="邮件联系"><svg viewBox="0 0 24 24"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11Zm0 .5 9 6 9-6" fill="none" stroke="#8b93a3" stroke-width="1.6"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>内容业务</h5>
+      <a href="#business">剧集创制</a>
+      <a href="#business">纪录片出品</a>
+      <a href="#business">短剧矩阵</a>
+      <a href="#business">品牌影像</a>
+    </div>
+    <div class="foot-col">
+      <h5>品牌与社区</h5>
+      <a href="#about">关于我们</a>
+      <a href="#news">品牌动态</a>
+      <a href="#community">创作社区</a>
+      <a href="#works">作品矩阵</a>
+    </div>
+    <div class="foot-col">
+      <h5>合作与联系</h5>
+      <a href="#contact">项目提案</a>
+      <a href="#contact">联合出品</a>
+      <a href="#contact">版权发行</a>
+      <a href="#contact">媒体联络</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2025 京东影业传媒 · 保留所有权利</p>
+    <div class="foot-legal">
+      <a href="#home">用户协议</a>
+      <a href="#home">隐私政策</a>
+      <a href="#home">内容合规声明</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 顶部导航滚动态 */
+  var topbar = document.getElementById('topbar');
+  function onScroll(){
+    if(window.scrollY > 40){ topbar.classList.add('solid'); }
+    else { topbar.classList.remove('solid'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* 移动端菜单 */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('on');
+    burger.classList.toggle('on', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  Array.prototype.forEach.call(menu.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('on');
+      burger.classList.remove('on');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* 滚动入场 */
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+    Array.prototype.forEach.call(reveals, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(reveals, function(el){ el.classList.add('in'); });
+  }
+
+  /* 数字滚动 */
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var dur = 1500, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.floor(eased * target);
+      el.textContent = val.toLocaleString('en-US');
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString('en-US');
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          animateCount(en.target);
+          io2.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.5});
+    Array.prototype.forEach.call(counters, function(el){ io2.observe(el); });
+  } else {
+    Array.prototype.forEach.call(counters, function(el){
+      el.textContent = parseInt(el.getAttribute('data-count'),10).toLocaleString('en-US');
+    });
+  }
+
+  /* 社区输入交互 */
+  var chatInput = document.querySelector('.chat-input input');
+  var sendBtn = document.getElementById('sendBtn');
+  function submitChat(){
+    if(!chatInput) return;
+    var v = chatInput.value.trim();
+    if(!v){ chatInput.focus(); return; }
+    var line = document.createElement('div');
+    line.className = 'chat-line';
+    var bub = document.createElement('div');
+    bub.className = 'bub';
+    bub.textContent = v;
+    line.appendChild(bub);
+    var container = document.querySelector('.chat-card');
+    container.insertBefore(line, container.querySelector('.chat-input'));
+    chatInput.value = '';
+    chatInput.focus();
+  }
+  if(sendBtn){ sendBtn.addEventListener('click', submitChat); }
+  if(chatInput){
+    chatInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); submitChat(); }
+    });
+  }
+
+  /* 播放按钮 */
+  var playBtn = document.querySelector('.play-btn');
+  if(playBtn){
+    playBtn.addEventListener('click', function(){
+      playBtn.style.transform = 'scale(0.92)';
+      setTimeout(function(){ playBtn.style.transform = ''; }, 180);
+    });
+  }
+
+  /* 作品卡片轻微视差 */
+  var works = document.querySelectorAll('.work');
+  if(window.matchMedia('(hover:hover)').matches){
+    Array.prototype.forEach.call(works, function(w){
+      w.addEventListener('mousemove', function(e){
+        var r = w.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5;
+        var y = (e.clientY - r.top) / r.height - .5;
+        var art = w.querySelector('.art');
+        if(art){ art.style.transform = 'scale(1.08) translate(' + (x*8) + 'px,' + (y*8) + 'px)'; }
+      });
+      w.addEventListener('mouseleave', function(){
+        var art = w.querySelector('.art');
+        if(art){ art.style.transform = ''; }
+      });
+    });
+  }
+})();
+</script>
+</body>
+        </html>
